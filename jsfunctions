@@ -1,0 +1,173 @@
+//CODE ONE (NOT WORKING)
+
+//get the user information
+
+const getUserResponse = (userInput) => {
+  userInput = userInput.toLowerCase();
+  if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors' || userInput === 'bomb') {
+    return userInput;
+    } else {
+    return 'only acceptable values here are rock, paper, scissors or bomb'
+  }
+}
+
+//get computer response
+
+const getComputerResponse = () => {
+  let cResponse = Math.floor(Math.random() * 3);
+  switch (cResponse) {
+    case 0:
+      return 'rock';
+      
+      case 1:
+        return 'paper';
+        
+        case 2:
+          return 'scissors';
+          
+          default:
+          return 'invalid';
+  }
+  
+}
+
+// determine game winner
+
+
+ const determineWinner = (userResp , compResp) => {
+  
+  //first if game tied 
+  
+  if (userResp === compResp) {
+    return 'The game is tied';
+  }
+  
+  //second if statement user chooses rock 
+  
+  if (userResp === 'rock' && compResp === 'paper') {
+    return 'computer wins';
+  } else {
+    return 'rock beats scissors, you won'
+  }
+  
+  //third if user chooses paper
+  
+  if (userResp === 'paper' && compResp === 'scissors') {
+    return 'computer wins';
+  } else {
+    return 'paper covers rock, you win';
+  }
+  
+  //fourth if statement, user chooses scissors
+  
+  if (userResp === 'scissors' && compResp === 'rock') {
+    return 'computer wins' 
+  } else {
+    return 'scissors cut paper, you win'
+  }
+  
+
+  
+  //all ifs are complete
+}
+
+const playGame = () => {
+  let userResponse = getUserResponse('rock');
+  let compResponse = getComputerResponse();
+  console.log(userResponse);
+  console.log(compResponse);
+  console.log(determineWinner(userResponse , compResponse));
+}
+
+playGame();
+
+//CODE TWO (WORKING)
+
+//get the user information
+
+const getUserResponse = (userInput) => {
+  userInput = userInput.toLowerCase();
+  if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors' || userInput === 'bomb') {
+    return userInput;
+    } else {
+    return 'only acceptable values here are rock, paper, scissors or bomb'
+  }
+}
+
+//get computer response
+
+const getComputerResponse = () => {
+  let cResponse = Math.floor(Math.random() * 3);
+  switch (cResponse) {
+    case 0:
+      return 'rock';
+      
+      case 1:
+        return 'paper';
+        
+        case 2:
+          return 'scissors';
+          
+          default:
+          return 'invalid';
+  }
+  
+}
+
+// determine game winner
+
+const determineWinner = (userResp , compResp) => {
+  
+  //first if game tied 
+  
+  if (userResp === compResp) {
+    return 'The game is tied';
+  }
+  
+  //second if statement user chooses rock 
+  
+  if (userResp === 'rock') {
+    if (compResp === 'paper') {
+    return 'computer wins';
+  } else {
+    return 'rock beats scissors, you won'
+  } 
+  }
+  
+  //third if user chooses paper
+  
+  if (userResp === 'paper') {
+    if (compResp === 'scissors') {
+    return 'computer wins';
+  } else {
+    return 'paper covers rock, you win';
+  }
+  }
+  
+  //fourth if statement, user chooses scissors
+  
+  if (userResp === 'scissors') {
+    if (compResp === 'rock') {
+    return 'computer wins' 
+  } else {
+    return 'scissors cut paper, you win'
+  }
+  }
+    
+  if (userResp === 'bomb') {
+    
+      return 'Bomb reigns supreme, you win everytime'
+    }
+  
+  //all ifs are complete
+}
+
+const playGame = () => {
+  let userResponse = getUserResponse('rock');
+  let compResponse = getComputerResponse();
+  console.log(userResponse);
+  console.log(compResponse);
+  console.log(determineWinner(userResponse , compResponse));
+}
+
+playGame();
